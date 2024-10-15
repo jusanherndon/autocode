@@ -33,17 +33,26 @@ struct show_information {
 };
 
 /**
- * A brief description. A more elaborate class description
- * @param bool somebool a boolean argument.
- * @see Test()
- * @return The test results
+ * This function downloads and makes an 
+ * xml data varible used for parsing later
+ * @param url string url to website where xml is hosted
+ * @return the parsed xml into a struct or variable
  */
-struct show_information download_and_extract_xml(url,file_name);
+struct xml_data download_and_parse(url);
 
 /**
- * A brief description. A more elaborate class description
- * @param bool somebool a boolean argument.
- * @see Test()
- * @return The test results
+ * This function parses through the xml data to 
+ * get the shows I want to download
+ * @param xml_input xml the output of the download_and_parse function
+ * @param file_name string A seperate file where it holds the shows used for the 
+ * show_information struct
+ * @return a struct called show_information 
+ */
+struct show_information (xml_input,file_name);
+
+/**
+ * This function creates torrent files
+ * @param show_information struct 
+ * @return nothing but creates a .torrent file
  */
 void create_torrent_file(show_information);
